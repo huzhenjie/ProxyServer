@@ -31,6 +31,12 @@ class proxy_handler(base_handler.BaseHandler):
             http_client.close()
 
     def post(self, path):
+        self.http_execute(path, 'POST')
+
+    def put(self, path):
+        self.http_execute(path, 'PUT')
+
+    def http_execute(self, path, method):
         arguments = self.request.arguments
         params = {}
         for k, v in arguments.items():
@@ -46,7 +52,7 @@ class proxy_handler(base_handler.BaseHandler):
         # print headers
         http_client = tornado.httpclient.HTTPClient()
         try:
-            response = http_client.fetch(real_url, headers=headers, body=body, method='POST')
+            response = http_client.fetch(real_url, headers=headers, body=body, method=method)
             self.write(response.body)
         except tornado.httpclient.HTTPError as e:
             print "Error:", e
