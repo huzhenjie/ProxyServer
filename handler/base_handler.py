@@ -5,6 +5,7 @@ class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
         self.set_header("Access-Control-Allow-Origin", "*")
         self.set_header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Content-Length,Authorization")
+        self.set_header("Access-Control-Allow-Credentials", "true")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT')
 
     def options(self, *args, **kwargs):
