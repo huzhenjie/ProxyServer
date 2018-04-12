@@ -36,7 +36,6 @@ class proxy_handler(base_handler.BaseHandler):
 
         headers = self.request.headers
         # print headers
-        # headers['Cookie'] = 'lang=zh-cn; udb_version=1.0; udb_uid=1199511680931; udb_passport=35184372292947hy; yyuid=1199511680931; udb_biztoken=AQBqb7FWTVsW2jLjMIMBx3ikWEwW3DWAa7EWuexPpDuamWQmRwAm0HLiVuDHN1QQVkpdb0Zv48JebJtIjTIPYrtvA5gRmQFYTedVGP4wZYTSrc2iFXNP7LsrioZdjyVK6XtB8BThydlaKtKQxJ8O4msx1N59iZvsgJ1VMHbrDwo6E7JVLWf304IKuQ-3iGKaHLrgQozax7e3ziTuK5VKKHwNVBwgc17fP6BbpGkTFi8-B87NwinfekyiSbjZ_Rj-5O0W8UY6seYukQlWDrbAYS4pOoODkLXuxU2d6Syr_qzukiRjP3DnGAuTGq2Zxku9-p6tvOTujdAaunL45TVWSnSu; udb_origin=1; build=1; nick=Yaoguo#6191; avatar=http://image.msstatic.com/cdnimage/avatar/1019/82/20d8b3e7f2ed9af4b76a5141c0123320d8b3e7f2ed9af4b76a5141c01233_1517541907.jpg; admin_uid=1; admin_email=admin%40yy.com'
 
         body = self.request.body
         if method == 'GET' or method == 'DELETE':
