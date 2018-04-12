@@ -11,6 +11,7 @@ from handler import proxy_handler
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
+            ("/test", TestHandler),
             (r"/(.*)", proxy_handler.proxy_handler),
         ]
         settings = dict(
@@ -29,6 +30,9 @@ class Application(tornado.web.Application):
             print 'static path [' + conf.static_file_dir + '] not exist'
         super(Application, self).__init__(handlers, **settings)
 
+class TestHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write('test')
 
 def main():
     print 'To see your app, visit:\n\nhttp://localhost:%s' % options.port
