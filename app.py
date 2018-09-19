@@ -11,7 +11,7 @@ from handler import proxy_handler
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            ("/test", TestHandler),
+            ("/", IndexHandler),
             (r"/(.*)", proxy_handler.proxy_handler),
         ]
         settings = dict(
@@ -30,9 +30,9 @@ class Application(tornado.web.Application):
             print 'static path [' + conf.static_file_dir + '] not exist'
         super(Application, self).__init__(handlers, **settings)
 
-class TestHandler(tornado.web.RequestHandler):
+class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write('test')
+        self.write('<h2>Welcome to <a href="https://github.com/huzhenjie/ProxyServer">ProxyServer</a></h2>')
 
 def main():
     print 'To see your app, visit:\n\nhttp://localhost:%s' % options.port
