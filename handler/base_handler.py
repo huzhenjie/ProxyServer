@@ -4,7 +4,7 @@ import tornado.web
 class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
         headers = self.request.headers
-        if headers['origin'] and headers['origin'] != '':
+        if 'origin' in headers and headers['origin'] and headers['origin'] != '':
             self.set_header("Access-Control-Allow-Origin", headers['origin'])
         else:
             self.set_header("Access-Control-Allow-Origin", "*")
